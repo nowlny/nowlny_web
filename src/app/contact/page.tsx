@@ -106,18 +106,18 @@ export default function Contact() {
           >
             <p>Or reach us directly at:</p>
             <p style={{ color: "var(--text-primary)", fontWeight: "600" }}>
-              support@nowlny.com
+              nowlylb@gmail.com
             </p>
             <p>1-800-NOWLNY</p>
             <p style={{ color: "var(--text-primary)", fontWeight: "600" }}>
               WhatsApp:{" "}
               <a
-                href="https://wa.me/1234567890"
+                href="https://wa.me/96171916674"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "var(--accent)", textDecoration: "underline" }}
               >
-                +1234567890
+                +96171916674
               </a>
             </p>
           </div>

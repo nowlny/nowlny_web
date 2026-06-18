@@ -55,7 +55,7 @@ export default function Footer() {
             <h4>Download</h4>
             <ul className="footer-links">
               <li>
-                <Link href="/">App Store</Link>
+                <Link href="https://apps.apple.com/lb/app/nowlny/id6778863532">App Store</Link>
               </li>
               <li>
                 <Link href="/">Google Play</Link>
@@ -66,13 +66,10 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Nowlny. All rights reserved.</p>
           <div style={{ display: "flex", gap: "1rem" }}>
-            <Link href="/" className="nav-link">
-              Twitter
-            </Link>
-            <Link href="/" className="nav-link">
+            <Link href="https://www.instagram.com/nowlnylb" className="nav-link" target="_blank" rel="noopener noreferrer">
               Instagram
             </Link>
-            <Link href="/" className="nav-link">
+            <Link href="https://www.facebook.com/profile.php?id=61589544729149" className="nav-link" target="_blank" rel="noopener noreferrer">
               Facebook
             </Link>
           </div>

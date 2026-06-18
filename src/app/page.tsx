@@ -16,7 +16,10 @@ export default function Home() {
             </p>
 
             <div className="store-buttons">
-              <Link href="/" className="store-btn">
+              <Link
+                href="https://apps.apple.com/lb/app/nowlny/id6778863532"
+                className="store-btn"
+              >
                 <div className="store-btn-text">
                   <span>Download on the</span>
                   <strong>App Store</strong>
@@ -36,11 +39,11 @@ export default function Home() {
             style={{ animationDelay: "0.2s" }}
           >
             <div
-              style={{ position: "relative", width: "300px", height: "600px" }}
+              style={{ position: "relative", width: "200px", height: "400px" }}
             >
               <Image
-                src="/app_screenshot_1.png"
-                alt="Nowlny App Screenshot 1"
+                src="/app_screenshot_new.png"
+                alt="Nowlny App Screenshot New"
                 fill
                 style={{ objectFit: "contain", borderRadius: "24px" }}
                 priority
@@ -200,7 +203,7 @@ export default function Home() {
           </p>
           <div className="store-buttons" style={{ justifyContent: "center" }}>
             <Link
-              href="/"
+              href="https://apps.apple.com/lb/app/nowlny/id6778863532"
               className="store-btn"
               style={{
                 backgroundColor: "var(--bg-primary)",

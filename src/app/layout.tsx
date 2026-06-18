@@ -34,7 +34,7 @@ export default function RootLayout({
         <main style={{ flex: 1 }}>{children}</main>
         <Footer />
         <a
-          href="https://wa.me/1234567890"
+          href="https://wa.me/96171916674"
           target="_blank"
           rel="noopener noreferrer"
           className="whatsapp-float"
