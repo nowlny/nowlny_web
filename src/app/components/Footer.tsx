@@ -49,6 +49,9 @@ export default function Footer() {
               <li>
                 <Link href="/help">Help Center</Link>
               </li>
+              <li>
+                <Link href="/delete-account">Delete Account</Link>
+              </li>
             </ul>
           </div>
           <div className="footer-col">
