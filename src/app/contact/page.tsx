@@ -1,4 +1,21 @@
+"use client";
+
+import { useState } from "react";
+
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = `Contact Form Submission from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    window.location.href = `mailto:nowlnylb@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <div className="fade-in">
       <section className="section" style={{ paddingTop: "10rem" }}>
@@ -13,6 +30,7 @@ export default function Contact() {
           </p>
 
           <form
+            onSubmit={handleSubmit}
             style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}
           >
             <div
@@ -28,6 +46,9 @@ export default function Contact() {
               <input
                 type="text"
                 id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
                 placeholder="Your Name"
                 style={{
                   padding: "0.75rem",
@@ -52,6 +73,9 @@ export default function Contact() {
               <input
                 type="email"
                 id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
                 placeholder="your@email.com"
                 style={{
                   padding: "0.75rem",
@@ -75,6 +99,9 @@ export default function Contact() {
               </label>
               <textarea
                 id="message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
                 rows={5}
                 placeholder="How can we help you?"
                 style={{
@@ -89,7 +116,7 @@ export default function Contact() {
             </div>
 
             <button
-              type="button"
+              type="submit"
               className="btn btn-primary"
               style={{ alignSelf: "flex-start" }}
             >
@@ -106,7 +133,9 @@ export default function Contact() {
           >
             <p>Or reach us directly at:</p>
             <p style={{ color: "var(--text-primary)", fontWeight: "600" }}>
-              nowlylb@gmail.com
+              <a href="mailto:nowlnylb@gmail.com" style={{ textDecoration: "none", color: "inherit" }}>
+                nowlnylb@gmail.com
+              </a>
             </p>
             <p>1-800-NOWLNY</p>
             <p style={{ color: "var(--text-primary)", fontWeight: "600" }}>
