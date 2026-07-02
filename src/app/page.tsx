@@ -4,7 +4,6 @@ import TiltCard from "./components/TiltCard";
 import MagneticButton from "./components/MagneticButton";
 import DeliveryGame from "./components/DeliveryGame";
 import ScrollReveal from "./components/ScrollReveal";
-import InfiniteMarquee from "./components/InfiniteMarquee";
 
 export default function Home() {
   return (
@@ -98,7 +97,6 @@ export default function Home() {
       </section>
 
       {/* Infinite Marquee Section */}
-      <InfiniteMarquee />
 
       {/* Features Section */}
       <section className="py-24 relative">
