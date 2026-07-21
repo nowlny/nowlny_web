@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "How Nowlny collects, uses, and protects your information.",
+};
+
 export default function Privacy() {
   return (
     <div className="flex flex-col min-h-screen pt-32 pb-24 px-6 relative overflow-hidden animate-fade-in">
@@ -28,10 +35,10 @@ export default function Privacy() {
                   We collect information that you provide directly to us when you create an account, make a purchase, or communicate with us. This may include:
                 </p>
                 <ul className="list-disc pl-6 space-y-2 text-text-muted">
-                  <li>Name and contact information</li>
-                  <li>Delivery address</li>
-                  <li>Payment information</li>
+                  <li>Name and contact information (including your phone number)</li>
+                  <li>Delivery addresses and location data you share for deliveries</li>
                   <li>Order history</li>
+                  <li>Messages you exchange with support or your driver in the app</li>
                 </ul>
               </section>
               
@@ -55,7 +62,7 @@ export default function Privacy() {
                   <span className="text-primary text-xl">03.</span> Information Sharing
                 </h2>
                 <p>
-                  We may share your information with third-party service providers who perform services for us, such as payment processing and delivery. We do not sell your personal information to third parties.
+                  We share order details with the restaurant preparing your food and the driver or delivery company fulfilling your delivery, and we work with service providers for hosting, notifications, and analytics. We do not sell your personal information to third parties.
                 </p>
               </section>
               
@@ -73,8 +80,8 @@ export default function Privacy() {
                   <span className="text-primary text-xl">05.</span> Contact Us
                 </h2>
                 <p>
-                  If you have any questions about this Privacy Policy, please contact our privacy team at{' '}
-                  <a href="mailto:privacy@nowlny.com" className="text-primary hover:underline font-medium">privacy@nowlny.com</a>.
+                  If you have any questions about this Privacy Policy, or want your data deleted, contact us at{' '}
+                  <a href="mailto:nowlnylb@gmail.com" className="text-primary hover:underline font-medium">nowlnylb@gmail.com</a>.
                 </p>
               </section>
             </div>

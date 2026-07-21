@@ -61,7 +61,7 @@ export default function TiltCard({ children, className = "" }: { children: React
         <div 
           className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
           style={{
-            background: `radial-gradient(circle at ${glowPos.x}% ${glowPos.y}%, rgba(255, 107, 0, 0.4), transparent 50%)`,
+            background: `radial-gradient(circle at ${glowPos.x}% ${glowPos.y}%, rgba(255, 69, 0, 0.4), transparent 50%)`,
             padding: "2px",
             WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
             WebkitMaskComposite: "xor",

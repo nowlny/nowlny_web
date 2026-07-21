@@ -3,6 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 
+const inputClasses =
+  "w-full bg-bg-surface border border-border-subtle rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-white placeholder-text-muted/50";
+
 export default function DeleteAccount() {
   const [step, setStep] = useState<"phone" | "otp" | "success" | "error">("phone");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -13,7 +16,7 @@ export default function DeleteAccount() {
   const handleRequestOtp = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!phoneNumber) return;
-    
+
     setIsLoading(true);
     setErrorMessage("");
     try {
@@ -22,11 +25,11 @@ export default function DeleteAccount() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phoneNumber }),
       });
-      
+
       if (!res.ok) {
         throw new Error("Failed to request OTP. Please check your phone number and try again.");
       }
-      
+
       setStep("otp");
     } catch (err: any) {
       setErrorMessage(err.message || "An error occurred.");
@@ -48,14 +51,14 @@ export default function DeleteAccount() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phoneNumber, code: otp }),
       });
-      
+
       if (!verifyRes.ok) {
         throw new Error("Invalid OTP. Please check the code and try again.");
       }
-      
+
       const data = await verifyRes.json();
       const token = data.accessToken || data.access_token;
-      
+
       if (!token) {
         throw new Error("Authentication failed. No token received.");
       }
@@ -67,7 +70,7 @@ export default function DeleteAccount() {
           "Authorization": `Bearer ${token}`
         }
       });
-      
+
       if (deleteRes.status === 200 || deleteRes.ok) {
         setStep("success");
       } else if (deleteRes.status === 409) {
@@ -85,21 +88,26 @@ export default function DeleteAccount() {
   };
 
   return (
-    <div className="fade-in">
-      <section className="section" style={{ paddingTop: "10rem", minHeight: "80vh" }}>
-        <div className="container" style={{ maxWidth: "500px" }}>
-          <h1 style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-            Delete Account
-          </h1>
-          <p style={{ textAlign: "center", marginBottom: "3rem", color: "var(--text-secondary)" }}>
-            Deleting your account will anonymize your personal data, revoke your tokens, and free your phone number for re-signup. This action cannot be undone.
-          </p>
+    <div className="flex flex-col min-h-screen pt-32 pb-24 px-6 relative overflow-hidden animate-fade-in">
+      {/* Background Decor */}
+      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-primary/5 blur-[150px] rounded-full pointer-events-none -z-10"></div>
 
+      <div className="container mx-auto max-w-lg relative z-10">
+        <div className="text-center mb-12 animate-slide-up">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-gradient">Delete Account</h1>
+          <p className="text-text-muted leading-relaxed">
+            Deleting your account will anonymize your personal data, revoke
+            your tokens, and free your phone number for re-signup. This action
+            cannot be undone.
+          </p>
+        </div>
+
+        <div className="glass-panel p-8 md:p-10 animate-slide-up animation-delay-200">
           {step === "phone" && (
-            <form onSubmit={handleRequestOtp} style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                <label htmlFor="phone" style={{ fontWeight: "600" }}>
-                  Phone Number
+            <form onSubmit={handleRequestOtp} className="flex flex-col gap-6">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="phone" className="text-sm font-semibold tracking-wide text-text-muted">
+                  PHONE NUMBER
                 </label>
                 <input
                   type="tel"
@@ -108,27 +116,20 @@ export default function DeleteAccount() {
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   placeholder="e.g. +96171916674"
                   required
-                  style={{
-                    padding: "0.75rem",
-                    borderRadius: "8px",
-                    border: "1px solid var(--border-color)",
-                    backgroundColor: "var(--bg-secondary)",
-                    color: "var(--text-primary)",
-                  }}
+                  className={inputClasses}
                 />
               </div>
 
               {errorMessage && (
-                <div style={{ color: "#ef4444", fontSize: "0.875rem", padding: "0.5rem", backgroundColor: "rgba(239, 68, 68, 0.1)", borderRadius: "4px" }}>
+                <div className="bg-red-500/10 border border-red-500/20 text-red-400 rounded-xl px-4 py-3 text-sm">
                   {errorMessage}
                 </div>
               )}
 
               <button
                 type="submit"
-                className="btn btn-primary"
                 disabled={isLoading}
-                style={{ width: "100%", opacity: isLoading ? 0.7 : 1 }}
+                className="btn-primary w-full disabled:opacity-60 disabled:pointer-events-none"
               >
                 {isLoading ? "Sending..." : "Request OTP"}
               </button>
@@ -136,12 +137,12 @@ export default function DeleteAccount() {
           )}
 
           {step === "otp" && (
-            <form onSubmit={handleVerifyAndDelete} style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                <label htmlFor="otp" style={{ fontWeight: "600" }}>
-                  Enter OTP
+            <form onSubmit={handleVerifyAndDelete} className="flex flex-col gap-6">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="otp" className="text-sm font-semibold tracking-wide text-text-muted">
+                  ENTER OTP
                 </label>
-                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", margin: 0 }}>
+                <p className="text-sm text-text-muted">
                   A verification code has been sent to {phoneNumber}
                 </p>
                 <input
@@ -151,43 +152,29 @@ export default function DeleteAccount() {
                   onChange={(e) => setOtp(e.target.value)}
                   placeholder="Enter 4-6 digit code"
                   required
-                  style={{
-                    padding: "0.75rem",
-                    borderRadius: "8px",
-                    border: "1px solid var(--border-color)",
-                    backgroundColor: "var(--bg-secondary)",
-                    color: "var(--text-primary)",
-                  }}
+                  className={inputClasses}
                 />
               </div>
 
               {errorMessage && (
-                <div style={{ color: "#ef4444", fontSize: "0.875rem", padding: "0.5rem", backgroundColor: "rgba(239, 68, 68, 0.1)", borderRadius: "4px" }}>
+                <div className="bg-red-500/10 border border-red-500/20 text-red-400 rounded-xl px-4 py-3 text-sm">
                   {errorMessage}
                 </div>
               )}
 
               <button
                 type="submit"
-                className="btn btn-primary"
                 disabled={isLoading}
-                style={{ width: "100%", opacity: isLoading ? 0.7 : 1, backgroundColor: "#ef4444", color: "white" }}
+                className="w-full inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-white bg-red-600 hover:bg-red-700 transition-all duration-300 shadow-[0_4px_14px_rgba(220,38,38,0.3)] disabled:opacity-60 disabled:pointer-events-none"
               >
                 {isLoading ? "Deleting..." : "Verify & Delete Account"}
               </button>
-              
+
               <button
                 type="button"
                 onClick={() => setStep("phone")}
                 disabled={isLoading}
-                style={{
-                  background: "none",
-                  border: "none",
-                  color: "var(--text-secondary)",
-                  cursor: "pointer",
-                  textDecoration: "underline",
-                  marginTop: "0.5rem"
-                }}
+                className="text-text-muted hover:text-white text-sm underline underline-offset-4 transition-colors disabled:opacity-60"
               >
                 Change Phone Number
               </button>
@@ -195,41 +182,43 @@ export default function DeleteAccount() {
           )}
 
           {step === "success" && (
-            <div style={{ textAlign: "center", padding: "2rem", backgroundColor: "rgba(34, 197, 94, 0.1)", borderRadius: "12px", border: "1px solid rgba(34, 197, 94, 0.2)" }}>
-              <div style={{ color: "#22c55e", fontSize: "3rem", marginBottom: "1rem" }}>✓</div>
-              <h2 style={{ marginBottom: "1rem", color: "#22c55e" }}>Account Deleted</h2>
-              <p style={{ color: "var(--text-primary)" }}>
-                Your account and all associated personal data have been successfully deleted.
+            <div className="text-center py-4">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 text-3xl">
+                ✓
+              </div>
+              <h2 className="text-2xl font-bold text-green-400 mb-3">Account Deleted</h2>
+              <p className="text-text-muted mb-8">
+                Your account and all associated personal data have been
+                successfully deleted.
               </p>
-              <Link href="/" className="btn btn-primary" style={{ display: "inline-block", marginTop: "1.5rem" }}>
+              <Link href="/" className="btn-primary">
                 Return to Home
               </Link>
             </div>
           )}
-          
+
           {step === "error" && (
-            <div style={{ textAlign: "center", padding: "2rem", backgroundColor: "rgba(239, 68, 68, 0.1)", borderRadius: "12px", border: "1px solid rgba(239, 68, 68, 0.2)" }}>
-              <div style={{ color: "#ef4444", fontSize: "3rem", marginBottom: "1rem" }}>!</div>
-              <h2 style={{ marginBottom: "1rem", color: "#ef4444" }}>Action Failed</h2>
-              <p style={{ color: "var(--text-primary)" }}>
-                {errorMessage}
-              </p>
-              <button 
+            <div className="text-center py-4">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 text-3xl">
+                !
+              </div>
+              <h2 className="text-2xl font-bold text-red-400 mb-3">Action Failed</h2>
+              <p className="text-text-muted mb-8">{errorMessage}</p>
+              <button
                 onClick={() => {
                   setStep("phone");
                   setPhoneNumber("");
                   setOtp("");
                   setErrorMessage("");
-                }} 
-                className="btn btn-primary" 
-                style={{ display: "inline-block", marginTop: "1.5rem" }}
+                }}
+                className="btn-primary"
               >
                 Try Again
               </button>
             </div>
           )}
         </div>
-      </section>
+      </div>
     </div>
   );
 }

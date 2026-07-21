@@ -1,24 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import CustomCursor from "./components/CustomCursor";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Nowlny - Premium Food Delivery App",
+  metadataBase: new URL("https://nowlny.com"),
+  title: {
+    default: "Nowlny — Food Delivery in Lebanon",
+    template: "%s | Nowlny",
+  },
   description:
-    "Experience the ultimate food delivery with Nowlny. Fast, fresh, and reliable.",
+    "Order from your favorite local restaurants in Lebanon and get it delivered fast. Download the Nowlny app on the App Store.",
+  keywords: [
+    "Nowlny",
+    "food delivery",
+    "Lebanon",
+    "restaurants",
+    "order food online",
+  ],
+  openGraph: {
+    title: "Nowlny — Food Delivery in Lebanon",
+    description:
+      "Order from your favorite local restaurants in Lebanon and get it delivered fast.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Nowlny",
+  },
 };
 
 export default function RootLayout({
@@ -27,12 +41,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${outfit.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-sans relative">
-        <CustomCursor />
         {/* Ambient Background Glows */}
         <div className="fixed top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse-slow"></div>
         <div
