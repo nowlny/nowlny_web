@@ -7,6 +7,7 @@ import { API_BASE, type MenuItem, type OptionGroup } from "../lib/api";
 import type { Lang } from "../lib/i18n";
 import { getT } from "../lib/i18n";
 import { formatMoney, toAmount } from "../lib/price";
+import ImageLightbox from "./ImageLightbox";
 
 interface ItemOptionsModalProps {
   item: MenuItem;
@@ -25,6 +26,7 @@ export default function ItemOptionsModal({
 }: ItemOptionsModalProps) {
   const t = getT(lang);
   const [groups, setGroups] = useState<OptionGroup[] | null>(null);
+  const [showPhoto, setShowPhoto] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -59,12 +61,12 @@ export default function ItemOptionsModal({
   // "Open in the app" bar.
   return createPortal(
     <div
-      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/70 backdrop-blur-sm animate-fade-in"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/70 backdrop-blur-sm animate-fade-in-fast"
       onClick={onClose}
       dir={lang === "ar" ? "rtl" : "ltr"}
     >
       <div
-        className="glass-panel w-full sm:max-w-md max-h-[80vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl p-6 bg-bg-surface"
+        className="glass-panel w-full sm:max-w-md max-h-[80vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl p-6 bg-bg-surface animate-sheet-in"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
@@ -79,15 +81,20 @@ export default function ItemOptionsModal({
             <p className="font-semibold text-primary mt-2">{priceLabel}</p>
           </div>
           {item.image ? (
-            <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0">
+            <button
+              type="button"
+              onClick={() => setShowPhoto(true)}
+              aria-label={item.name}
+              className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0 cursor-zoom-in"
+            >
               <Image
                 src={item.image}
                 alt={item.name}
                 fill
-                sizes="64px"
+                sizes="80px"
                 className="object-cover"
               />
-            </div>
+            </button>
           ) : null}
         </div>
 
@@ -141,6 +148,14 @@ export default function ItemOptionsModal({
           {t("close")}
         </button>
       </div>
+
+      {showPhoto && item.image ? (
+        <ImageLightbox
+          src={item.image}
+          alt={item.name}
+          onClose={() => setShowPhoto(false)}
+        />
+      ) : null}
     </div>,
     document.body
   );

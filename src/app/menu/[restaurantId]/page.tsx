@@ -90,7 +90,7 @@ export default async function MenuPage({
           <ThemeToggle />
           <a
             href={`/menu/${restaurant.id}?lang=${otherLang}`}
-            className="text-xs font-semibold text-text-muted border border-border-subtle rounded-full px-3 py-1.5 hover:text-text-main transition-colors"
+            className="text-xs font-bold text-text-main bg-bg-surface border border-text-main/20 rounded-full px-3.5 py-2 shadow-sm hover:text-primary hover:border-primary/60 transition-colors"
           >
             {lang === "ar" ? "English" : "عربي"}
           </a>
