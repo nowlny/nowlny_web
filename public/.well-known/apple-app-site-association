@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["Q29W9MSX8F.com.nowlnylb.customer"],
+        "appID": "Q29W9MSX8F.com.nowlnylb.customer",
+        "components": [{ "/": "/menu/*" }],
+        "paths": ["/menu/*"]
+      }
+    ]
+  }
+}

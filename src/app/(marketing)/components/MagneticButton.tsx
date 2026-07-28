@@ -34,7 +34,7 @@ export default function MagneticButton({
   return (
     <Link
       href={href}
-      ref={buttonRef as any}
+      ref={buttonRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={`inline-block transition-transform duration-200 ease-out ${className}`}

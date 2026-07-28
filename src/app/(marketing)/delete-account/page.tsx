@@ -31,8 +31,8 @@ export default function DeleteAccount() {
       }
 
       setStep("otp");
-    } catch (err: any) {
-      setErrorMessage(err.message || "An error occurred.");
+    } catch (err) {
+      setErrorMessage(err instanceof Error ? err.message : "An error occurred.");
     } finally {
       setIsLoading(false);
     }
@@ -80,8 +80,8 @@ export default function DeleteAccount() {
         throw new Error("Failed to delete account. Please try again later or contact support.");
       }
 
-    } catch (err: any) {
-      setErrorMessage(err.message || "An error occurred.");
+    } catch (err) {
+      setErrorMessage(err instanceof Error ? err.message : "An error occurred.");
     } finally {
       setIsLoading(false);
     }
