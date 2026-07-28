@@ -22,13 +22,13 @@ export default function Privacy() {
 
         <div className="glass-panel p-8 md:p-12 animate-slide-up animation-delay-200">
           <div className="prose prose-invert prose-lg max-w-none text-text-muted">
-            <p className="text-xl text-white mb-10 font-light">
+            <p className="text-xl text-text-main mb-10 font-light">
               At Nowlny, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application and website.
             </p>
             
             <div className="space-y-12">
               <section>
-                <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                <h2 className="text-2xl font-bold text-text-main mb-4 flex items-center gap-3">
                   <span className="text-primary text-xl">01.</span> Information We Collect
                 </h2>
                 <p className="mb-4">
@@ -43,7 +43,7 @@ export default function Privacy() {
               </section>
               
               <section>
-                <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                <h2 className="text-2xl font-bold text-text-main mb-4 flex items-center gap-3">
                   <span className="text-primary text-xl">02.</span> How We Use Your Information
                 </h2>
                 <p className="mb-4">
@@ -58,7 +58,7 @@ export default function Privacy() {
               </section>
               
               <section>
-                <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                <h2 className="text-2xl font-bold text-text-main mb-4 flex items-center gap-3">
                   <span className="text-primary text-xl">03.</span> Information Sharing
                 </h2>
                 <p>
@@ -67,7 +67,7 @@ export default function Privacy() {
               </section>
               
               <section>
-                <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                <h2 className="text-2xl font-bold text-text-main mb-4 flex items-center gap-3">
                   <span className="text-primary text-xl">04.</span> Security
                 </h2>
                 <p>
@@ -76,7 +76,7 @@ export default function Privacy() {
               </section>
               
               <section className="pt-8 border-t border-border-subtle">
-                <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                <h2 className="text-2xl font-bold text-text-main mb-4 flex items-center gap-3">
                   <span className="text-primary text-xl">05.</span> Contact Us
                 </h2>
                 <p>

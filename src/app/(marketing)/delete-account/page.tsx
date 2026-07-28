@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 const inputClasses =
-  "w-full bg-bg-surface border border-border-subtle rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-white placeholder-text-muted/50";
+  "w-full bg-bg-surface border border-border-subtle rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-text-main placeholder-text-muted/50";
 
 export default function DeleteAccount() {
   const [step, setStep] = useState<"phone" | "otp" | "success" | "error">("phone");
@@ -174,7 +174,7 @@ export default function DeleteAccount() {
                 type="button"
                 onClick={() => setStep("phone")}
                 disabled={isLoading}
-                className="text-text-muted hover:text-white text-sm underline underline-offset-4 transition-colors disabled:opacity-60"
+                className="text-text-muted hover:text-text-main text-sm underline underline-offset-4 transition-colors disabled:opacity-60"
               >
                 Change Phone Number
               </button>

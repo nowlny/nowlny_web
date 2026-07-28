@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import MagneticButton from "./MagneticButton";
+import ThemeToggle from "../../components/ThemeToggle";
 
 export default function Header() {
   const pathname = usePathname();
@@ -18,11 +19,18 @@ export default function Header() {
       <div className="container mx-auto px-6 max-w-7xl h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group" onClick={closeMenu}>
           <Image
+            src="/logotransparentLight.png"
+            alt="Nowlny Logo"
+            width={140}
+            height={140}
+            className="group-hover:scale-105 transition-transform duration-300 dark:hidden"
+          />
+          <Image
             src="/logotransparentDark.png"
             alt="Nowlny Logo"
             width={140}
             height={140}
-            className="group-hover:scale-105 transition-transform duration-300"
+            className="group-hover:scale-105 transition-transform duration-300 hidden dark:block"
           />
         </Link>
 
@@ -31,7 +39,7 @@ export default function Header() {
           <Link
             href="/"
             className={`font-medium text-sm tracking-wide transition-colors duration-300 relative group ${
-              pathname === "/" ? "text-white" : "text-text-muted hover:text-white"
+              pathname === "/" ? "text-text-main" : "text-text-muted hover:text-text-main"
             }`}
           >
             Home
@@ -40,7 +48,7 @@ export default function Header() {
           <Link
             href="/about"
             className={`font-medium text-sm tracking-wide transition-colors duration-300 relative group ${
-              pathname === "/about" ? "text-white" : "text-text-muted hover:text-white"
+              pathname === "/about" ? "text-text-main" : "text-text-muted hover:text-text-main"
             }`}
           >
             About
@@ -49,24 +57,28 @@ export default function Header() {
           <Link
             href="/contact"
             className={`font-medium text-sm tracking-wide transition-colors duration-300 relative group ${
-              pathname === "/contact" ? "text-white" : "text-text-muted hover:text-white"
+              pathname === "/contact" ? "text-text-main" : "text-text-muted hover:text-text-main"
             }`}
           >
             Contact
             <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ${pathname === "/contact" ? "w-full" : "w-0 group-hover:w-full"}`}></span>
           </Link>
           
+          <ThemeToggle className="ml-2" />
+
           <MagneticButton
             href="https://apps.apple.com/lb/app/nowlny/id6778863532"
-            className="bg-primary hover:bg-primary-hover text-white px-6 py-2.5 rounded-full text-sm font-semibold ml-4 shadow-lg shadow-primary/20"
+            className="bg-primary hover:bg-primary-hover text-white px-6 py-2.5 rounded-full text-sm font-semibold ml-2 shadow-lg shadow-primary/20"
           >
             Download App
           </MagneticButton>
         </nav>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile: theme toggle + menu button */}
+        <div className="md:hidden flex items-center gap-1">
+        <ThemeToggle />
         <button
-          className="md:hidden text-white p-2 focus:outline-none"
+          className="text-text-main p-2 focus:outline-none"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -80,6 +92,7 @@ export default function Header() {
             </svg>
           )}
         </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
@@ -93,7 +106,7 @@ export default function Header() {
             href="/"
             onClick={closeMenu}
             className={`text-lg font-medium p-2 rounded-lg transition-colors ${
-              pathname === "/" ? "bg-bg-glass text-primary" : "text-text-muted hover:text-white hover:bg-bg-glass"
+              pathname === "/" ? "bg-bg-glass text-primary" : "text-text-muted hover:text-text-main hover:bg-bg-glass"
             }`}
           >
             Home
@@ -102,7 +115,7 @@ export default function Header() {
             href="/about"
             onClick={closeMenu}
             className={`text-lg font-medium p-2 rounded-lg transition-colors ${
-              pathname === "/about" ? "bg-bg-glass text-primary" : "text-text-muted hover:text-white hover:bg-bg-glass"
+              pathname === "/about" ? "bg-bg-glass text-primary" : "text-text-muted hover:text-text-main hover:bg-bg-glass"
             }`}
           >
             About
@@ -111,7 +124,7 @@ export default function Header() {
             href="/contact"
             onClick={closeMenu}
             className={`text-lg font-medium p-2 rounded-lg transition-colors ${
-              pathname === "/contact" ? "bg-bg-glass text-primary" : "text-text-muted hover:text-white hover:bg-bg-glass"
+              pathname === "/contact" ? "bg-bg-glass text-primary" : "text-text-muted hover:text-text-main hover:bg-bg-glass"
             }`}
           >
             Contact

@@ -7,6 +7,7 @@ import { getT, resolveLang } from "../lib/i18n";
 import { getDualPrice, getUsdLbpRate, toAmount } from "../lib/price";
 import MenuItemCard from "../components/MenuItemCard";
 import OpenInAppBar from "../components/OpenInAppBar";
+import ThemeToggle from "../../components/ThemeToggle";
 
 const plexArabic = IBM_Plex_Sans_Arabic({
   weight: ["400", "500", "700"],
@@ -84,8 +85,9 @@ export default async function MenuPage({
       className={`min-h-screen w-full ${lang === "ar" ? plexArabic.className : ""}`}
     >
       <div className="max-w-2xl mx-auto px-4 pt-4 pb-32 animate-fade-in">
-        {/* Top bar: language toggle */}
-        <div className="flex justify-end mb-2">
+        {/* Top bar: theme + language toggles */}
+        <div className="flex justify-end items-center gap-2 mb-2">
+          <ThemeToggle />
           <a
             href={`/menu/${restaurant.id}?lang=${otherLang}`}
             className="text-xs font-semibold text-text-muted border border-border-subtle rounded-full px-3 py-1.5 hover:text-text-main transition-colors"
@@ -132,8 +134,8 @@ export default async function MenuPage({
               <span
                 className={`text-[11px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full ${
                   restaurant.isOpen
-                    ? "bg-green-500/20 text-green-400"
-                    : "bg-white/10 text-text-muted"
+                    ? "bg-green-500/15 text-green-600 dark:text-green-400"
+                    : "bg-text-main/10 text-text-muted"
                 }`}
               >
                 {restaurant.isOpen ? t("open") : t("closed")}

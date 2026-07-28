@@ -145,7 +145,7 @@ export default function Terms() {
             <div className="space-y-12">
               {sections.map((section, idx) => (
                 <section key={idx} className={idx === sections.length - 1 ? "pt-8 border-t border-border-subtle" : undefined}>
-                  <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                  <h2 className="text-2xl font-bold text-text-main mb-4 flex items-center gap-3">
                     <span className="text-primary text-xl">
                       {String(idx + 1).padStart(2, "0")}.
                     </span>{" "}

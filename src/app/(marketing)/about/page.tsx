@@ -55,7 +55,7 @@ export default function About() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 pt-12 border-t border-border-subtle">
               <div>
-                <h2 className="text-3xl font-bold mb-6 text-white flex items-center gap-3">
+                <h2 className="text-3xl font-bold mb-6 text-text-main flex items-center gap-3">
                   <span className="text-primary">🎯</span> Our Mission
                 </h2>
                 <p className="text-text-muted leading-relaxed">
@@ -67,14 +67,14 @@ export default function About() {
               </div>
 
               <div>
-                <h2 className="text-3xl font-bold mb-6 text-white flex items-center gap-3">
+                <h2 className="text-3xl font-bold mb-6 text-text-main flex items-center gap-3">
                   <span className="text-primary">⭐</span> What We Stand For
                 </h2>
                 <ul className="space-y-6">
                   <li className="flex gap-4">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0"></div>
                     <div>
-                      <strong className="text-white block mb-1">Local First</strong>
+                      <strong className="text-text-main block mb-1">Local First</strong>
                       <span className="text-text-muted text-sm">
                         We champion Lebanese restaurants and drivers. Your
                         order supports your own community, not a distant
@@ -85,7 +85,7 @@ export default function About() {
                   <li className="flex gap-4">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0"></div>
                     <div>
-                      <strong className="text-white block mb-1">Full Transparency</strong>
+                      <strong className="text-text-main block mb-1">Full Transparency</strong>
                       <span className="text-text-muted text-sm">
                         Watch your driver on a live map, see every order
                         status, and talk to your driver directly in the app.
@@ -96,7 +96,7 @@ export default function About() {
                   <li className="flex gap-4">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0"></div>
                     <div>
-                      <strong className="text-white block mb-1">Built for Here</strong>
+                      <strong className="text-text-main block mb-1">Built for Here</strong>
                       <span className="text-text-muted text-sm">
                         Cash on delivery, English and Arabic, local delivery
                         zones — designed around Lebanon&apos;s reality, not
@@ -109,7 +109,7 @@ export default function About() {
             </div>
 
             <div className="mt-12 pt-12 border-t border-border-subtle text-center">
-              <h2 className="text-2xl font-bold mb-4 text-white">
+              <h2 className="text-2xl font-bold mb-4 text-text-main">
                 Join Us on the Journey
               </h2>
               <p className="text-text-muted mb-8 max-w-xl mx-auto">
@@ -127,7 +127,7 @@ export default function About() {
                 </a>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-white border border-border-subtle hover:border-primary/50 hover:bg-bg-glass transition-all duration-300"
+                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-semibold text-text-main border border-border-subtle hover:border-primary/50 hover:bg-bg-glass transition-all duration-300"
                 >
                   Partner With Us
                 </Link>

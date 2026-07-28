@@ -147,7 +147,7 @@ export default function Contact() {
                   required
                   maxLength={100}
                   placeholder="Your name"
-                  className="w-full bg-bg-surface border border-border-subtle rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-white placeholder-text-muted/50"
+                  className="w-full bg-bg-surface border border-border-subtle rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-text-main placeholder-text-muted/50"
                 />
               </div>
 
@@ -161,7 +161,7 @@ export default function Contact() {
                   required
                   maxLength={200}
                   placeholder="you@example.com"
-                  className="w-full bg-bg-surface border border-border-subtle rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-white placeholder-text-muted/50"
+                  className="w-full bg-bg-surface border border-border-subtle rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-text-main placeholder-text-muted/50"
                 />
               </div>
 
@@ -175,7 +175,7 @@ export default function Contact() {
                   maxLength={5000}
                   rows={5}
                   placeholder="How can we help you?"
-                  className="w-full bg-bg-surface border border-border-subtle rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-white placeholder-text-muted/50 resize-y"
+                  className="w-full bg-bg-surface border border-border-subtle rounded-xl px-4 py-3.5 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all text-text-main placeholder-text-muted/50 resize-y"
                 ></textarea>
               </div>
 

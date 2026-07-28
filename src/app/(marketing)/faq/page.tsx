@@ -77,7 +77,7 @@ export default function FAQ() {
               key={idx}
               className="glass-panel group open:border-primary/30"
             >
-              <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none font-semibold text-lg text-white [&::-webkit-details-marker]:hidden">
+              <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none font-semibold text-lg text-text-main [&::-webkit-details-marker]:hidden">
                 {faq.q}
                 <span className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center transition-transform duration-300 group-open:rotate-45">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>

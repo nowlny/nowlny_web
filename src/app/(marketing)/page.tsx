@@ -67,7 +67,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                 <MagneticButton
                   href={APP_STORE_URL}
-                  className="flex items-center justify-center sm:justify-start gap-3 bg-white text-black px-6 py-3.5 rounded-2xl hover:shadow-[0_10px_30px_rgba(255,255,255,0.2)] group"
+                  className="flex items-center justify-center sm:justify-start gap-3 bg-text-main text-bg-base px-6 py-3.5 rounded-2xl hover:shadow-[0_10px_30px_rgba(255,255,255,0.2)] group"
                 >
                   <AppleLogo />
                   <div className="flex flex-col items-start leading-tight">
@@ -80,7 +80,7 @@ export default function Home() {
 
                 <div
                   aria-disabled="true"
-                  className="relative flex items-center justify-center sm:justify-start gap-3 bg-white/5 border border-white/10 text-white/50 px-6 py-3.5 rounded-2xl select-none"
+                  className="relative flex items-center justify-center sm:justify-start gap-3 bg-text-main/5 border border-text-main/10 text-text-main/50 px-6 py-3.5 rounded-2xl select-none"
                 >
                   <GooglePlayLogo />
                   <div className="flex flex-col items-start leading-tight">
@@ -308,7 +308,7 @@ export default function Home() {
                       href={app.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-primary transition-colors"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-text-main hover:text-primary transition-colors"
                     >
                       <AppleLogo size={16} />
                       {app.cta}
@@ -367,7 +367,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 relative z-10">
                 <MagneticButton
                   href={APP_STORE_URL}
-                  className="flex items-center justify-center gap-3 bg-white text-black px-8 py-4 rounded-2xl hover:shadow-[0_10px_30px_rgba(255,255,255,0.2)] group"
+                  className="flex items-center justify-center gap-3 bg-text-main text-bg-base px-8 py-4 rounded-2xl hover:shadow-[0_10px_30px_rgba(255,255,255,0.2)] group"
                 >
                   <AppleLogo size={24} />
                   <span className="font-bold text-lg">App Store</span>
@@ -375,7 +375,7 @@ export default function Home() {
 
                 <div
                   aria-disabled="true"
-                  className="relative flex items-center justify-center gap-3 bg-white/5 border border-white/10 text-white/50 px-8 py-4 rounded-2xl select-none"
+                  className="relative flex items-center justify-center gap-3 bg-text-main/5 border border-text-main/10 text-text-main/50 px-8 py-4 rounded-2xl select-none"
                 >
                   <GooglePlayLogo size={24} />
                   <span className="font-bold text-lg">Google Play</span>

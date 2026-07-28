@@ -47,7 +47,7 @@ export default function MenuItemCard({
               </span>
             )}
             {unavailable && (
-              <span className="text-[10px] font-semibold uppercase tracking-wide bg-white/10 text-text-muted px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-semibold uppercase tracking-wide bg-text-main/10 text-text-muted px-2 py-0.5 rounded-full">
                 {t("unavailable")}
               </span>
             )}

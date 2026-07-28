@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { API_BASE, type MenuItem, type OptionGroup } from "../lib/api";
 import type { Lang } from "../lib/i18n";
@@ -53,7 +54,10 @@ export default function ItemOptionsModal({
     .slice()
     .sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
 
-  return (
+  // Portaled to <body>: the page wrapper's fade-in animation creates a stacking
+  // context that would otherwise trap this z-50 overlay below the fixed
+  // "Open in the app" bar.
+  return createPortal(
     <div
       className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/70 backdrop-blur-sm animate-fade-in"
       onClick={onClose}
@@ -99,7 +103,7 @@ export default function ItemOptionsModal({
                     className={`text-[10px] font-semibold uppercase tracking-wide px-2 py-0.5 rounded-full ${
                       group.isRequired
                         ? "bg-primary/20 text-primary"
-                        : "bg-white/10 text-text-muted"
+                        : "bg-text-main/10 text-text-muted"
                     }`}
                   >
                     {group.isRequired ? t("required") : t("optional")}
@@ -137,6 +141,7 @@ export default function ItemOptionsModal({
           {t("close")}
         </button>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

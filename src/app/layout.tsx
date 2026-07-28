@@ -33,14 +33,23 @@ export const metadata: Metadata = {
   },
 };
 
+// Applied before first paint so the page never flashes the wrong theme.
+// Stored choice wins; otherwise follow the system preference (dark fallback).
+const themeBootScript = `try{var t=localStorage.getItem('nowlny_theme');var d=t?t==='dark':!window.matchMedia('(prefers-color-scheme: light)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){document.documentElement.classList.add('dark')}`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} h-full antialiased`}>
+    <html
+      lang="en"
+      className={`${outfit.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
       <body className="min-h-full flex flex-col font-sans relative">
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         {children}
       </body>
     </html>
