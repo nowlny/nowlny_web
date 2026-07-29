@@ -3,10 +3,20 @@
     "apps": [],
     "details": [
       {
-        "appIDs": ["Q29W9MSX8F.com.nowlnylb.customer"],
         "appID": "Q29W9MSX8F.com.nowlnylb.customer",
-        "components": [{ "/": "/menu/*" }],
-        "paths": ["/menu/*"]
+        "paths": ["/customer/*", "/order/*", "/join/*"]
+      },
+      {
+        "appID": "Q29W9MSX8F.com.nowlnylb.restaurant",
+        "paths": ["/restaurant/*", "/resto-order/*"]
+      },
+      {
+        "appID": "Q29W9MSX8F.com.nowlnylb.delivery",
+        "paths": ["/delivery-order/*"]
+      },
+      {
+        "appID": "Q29W9MSX8F.com.nowlnylb.delivery-company",
+        "paths": ["/pickup-requests", "/company-orders", "/integrations"]
       }
     ]
   }
