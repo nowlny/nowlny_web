@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: "%s | Nowlny",
   },
   description:
-    "Order from your favorite local restaurants in Lebanon and get it delivered fast. Download the Nowlny app on the App Store.",
+    "Order from your favorite local restaurants in Lebanon and get it delivered fast. Download the Nowlny app on the App Store or Google Play.",
   keywords: [
     "Nowlny",
     "food delivery",

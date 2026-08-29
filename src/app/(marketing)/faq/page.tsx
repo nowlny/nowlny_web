@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Is Nowlny available on Android?",
-    a: "The iOS app is live on the App Store today. The Android version is coming to Google Play soon — follow us on Instagram @nowlnylb to hear the moment it launches.",
+    a: "Yes — Nowlny is live on Google Play for Android, and on the App Store for iPhone. Search for \"Nowlny\" in either store or use the download buttons on this site.",
   },
   {
     q: "Does the app support Arabic?",

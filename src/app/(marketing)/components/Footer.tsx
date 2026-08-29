@@ -97,18 +97,15 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <div className="relative inline-flex items-center gap-2 bg-[#111] border border-border-subtle text-white/50 px-4 py-2 rounded-xl text-sm select-none">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <Link href="https://play.google.com/store/apps/details?id=com.nowlnylb.customer" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#111] hover:bg-[#222] border border-border-subtle hover:border-primary/50 text-white px-4 py-2 rounded-xl transition-all duration-300 text-sm group">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="group-hover:text-primary transition-colors" viewBox="0 0 16 16">
                     <path d="M15.14 7.636 1.158.33A.954.954 0 0 0 0 1.168v13.665a.954.954 0 0 0 1.158.837l13.982-7.306a.95.95 0 0 0 0-1.688v-.04Zm-13.626 5.34V3.023l6.58 3.513-6.58 3.514Z" />
                   </svg>
                   <div className="flex flex-col items-start leading-none">
                     <span className="text-[10px] text-text-muted">GET IT ON</span>
                     <span className="font-semibold">Google Play</span>
                   </div>
-                  <span className="absolute -top-2 -right-2 bg-primary text-white text-[9px] font-bold px-2 py-0.5 rounded-full">
-                    SOON
-                  </span>
-                </div>
+                </Link>
               </li>
               <li>
                 <Link href="https://apps.apple.com/lb/app/nowlny-restaurant/id6778846700" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-primary transition-colors duration-300 text-sm flex items-center gap-2 group">

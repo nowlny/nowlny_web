@@ -7,6 +7,8 @@ import PhoneFrame from "./components/PhoneFrame";
 const APP_STORE_URL = "https://apps.apple.com/lb/app/nowlny/id6778863532";
 const RESTO_APP_STORE_URL =
   "https://apps.apple.com/lb/app/nowlny-restaurant/id6778846700";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.nowlnylb.customer";
 
 function AppleLogo({ size = 28 }: { size?: number }) {
   return (
@@ -44,14 +46,6 @@ export default function Home() {
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             <div className="flex flex-col items-center lg:items-start text-center lg:text-left animate-slide-up">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
-                Nowlny is live in Lebanon!
-              </div>
-
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
                 Hungry? <br />
                 We&apos;ve Got You{" "}
@@ -78,19 +72,18 @@ export default function Home() {
                   </div>
                 </MagneticButton>
 
-                <div
-                  aria-disabled="true"
-                  className="relative flex items-center justify-center sm:justify-start gap-3 bg-text-main/5 border border-text-main/10 text-text-main/50 px-6 py-3.5 rounded-2xl select-none"
+                <MagneticButton
+                  href={PLAY_STORE_URL}
+                  className="flex items-center justify-center sm:justify-start gap-3 bg-text-main text-bg-base px-6 py-3.5 rounded-2xl hover:shadow-[0_10px_30px_rgba(255,255,255,0.2)] group"
                 >
                   <GooglePlayLogo />
                   <div className="flex flex-col items-start leading-tight">
-                    <span className="text-[10px] font-medium">GET IT ON</span>
+                    <span className="text-[10px] text-gray-600 font-medium">
+                      GET IT ON
+                    </span>
                     <span className="text-base font-bold">Google Play</span>
                   </div>
-                  <span className="absolute -top-2.5 -right-2.5 bg-primary text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg">
-                    SOON
-                  </span>
-                </div>
+                </MagneticButton>
               </div>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 mt-8 text-sm text-text-muted">
@@ -265,6 +258,7 @@ export default function Home() {
                 desc: "Order food, track your driver live, and pay cash on delivery.",
                 href: APP_STORE_URL,
                 cta: "On the App Store",
+                playHref: PLAY_STORE_URL,
               },
               {
                 icon: "🏪",
@@ -273,6 +267,7 @@ export default function Home() {
                 desc: "Receive and manage orders, edit your menu, post reels and stories, and coordinate your own drivers.",
                 href: RESTO_APP_STORE_URL,
                 cta: "On the App Store",
+                playHref: null,
               },
               {
                 icon: "🛵",
@@ -281,6 +276,7 @@ export default function Home() {
                 desc: "Get delivery jobs, navigate to the restaurant and customer, and track your earnings.",
                 href: null,
                 cta: "Rolling out",
+                playHref: null,
               },
               {
                 icon: "🚚",
@@ -289,6 +285,7 @@ export default function Home() {
                 desc: "Manage your driver fleet, accept pickup requests, and define your delivery zones.",
                 href: null,
                 cta: "Rolling out",
+                playHref: null,
               },
             ].map((app, idx) => (
               <ScrollReveal key={idx} delay={idx * 150} direction="up">
@@ -304,16 +301,30 @@ export default function Home() {
                     {app.desc}
                   </p>
                   {app.href ? (
-                    <Link
-                      href={app.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-text-main hover:text-primary transition-colors"
-                    >
-                      <AppleLogo size={16} />
-                      {app.cta}
-                      <span aria-hidden>→</span>
-                    </Link>
+                    <div className="flex flex-col items-start gap-2">
+                      <Link
+                        href={app.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-text-main hover:text-primary transition-colors"
+                      >
+                        <AppleLogo size={16} />
+                        {app.cta}
+                        <span aria-hidden>→</span>
+                      </Link>
+                      {app.playHref && (
+                        <Link
+                          href={app.playHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-text-main hover:text-primary transition-colors"
+                        >
+                          <GooglePlayLogo size={16} />
+                          On Google Play
+                          <span aria-hidden>→</span>
+                        </Link>
+                      )}
+                    </div>
                   ) : (
                     <span className="inline-flex items-center gap-2 text-sm font-semibold text-text-muted">
                       {app.cta}
@@ -360,8 +371,8 @@ export default function Home() {
                 Get Started Today
               </h2>
               <p className="text-lg text-text-muted mb-10 max-w-xl mx-auto relative z-10">
-                Download Nowlny on the App Store and get your favorite food
-                delivered — fresh, fast, and tracked live to your door.
+                Download Nowlny on the App Store or Google Play and get your
+                favorite food delivered — fresh, fast, and tracked live to your door.
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 relative z-10">
@@ -373,16 +384,13 @@ export default function Home() {
                   <span className="font-bold text-lg">App Store</span>
                 </MagneticButton>
 
-                <div
-                  aria-disabled="true"
-                  className="relative flex items-center justify-center gap-3 bg-text-main/5 border border-text-main/10 text-text-main/50 px-8 py-4 rounded-2xl select-none"
+                <MagneticButton
+                  href={PLAY_STORE_URL}
+                  className="flex items-center justify-center gap-3 bg-text-main text-bg-base px-8 py-4 rounded-2xl hover:shadow-[0_10px_30px_rgba(255,255,255,0.2)] group"
                 >
                   <GooglePlayLogo size={24} />
                   <span className="font-bold text-lg">Google Play</span>
-                  <span className="absolute -top-2.5 -right-2.5 bg-primary text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-lg">
-                    SOON
-                  </span>
-                </div>
+                </MagneticButton>
               </div>
             </div>
           </TiltCard>
