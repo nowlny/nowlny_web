@@ -9,5 +9,35 @@
         "F1:78:BA:BE:38:2C:33:84:ED:2F:10:0B:D4:5E:FA:6E:82:87:9C:B9:2C:2C:2D:56:3B:16:53:F8:B4:13:07:83"
       ]
     }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nowlnylb.restaurant",
+      "sha256_cert_fingerprints": [
+        "AC:6D:48:3D:E6:73:74:FE:B6:72:3F:9D:40:FB:48:78:4C:10:AE:ED:42:4E:2B:D2:CB:18:F9:CC:03:FD:3F:AB"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nowlnylb.delivery",
+      "sha256_cert_fingerprints": [
+        "92:1A:A5:F3:10:7A:F4:DB:16:DA:06:EA:8E:A7:B4:4E:F9:E5:95:12:BF:3E:84:60:87:25:B5:2C:40:E5:41:73"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nowlny_delivery_company",
+      "sha256_cert_fingerprints": [
+        "A0:26:59:7E:B6:26:CD:5A:73:44:4A:19:53:05:DA:CB:DE:FF:DE:5A:E1:AB:66:A9:AE:BD:D4:03:F9:B2:3E:47"
+      ]
+    }
   }
 ]
