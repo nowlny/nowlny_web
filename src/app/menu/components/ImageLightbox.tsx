@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import { isOptimizable } from "../lib/imageHosts";
 
 interface ImageLightboxProps {
   src: string;
@@ -36,7 +37,14 @@ export default function ImageLightbox({ src, alt, onClose }: ImageLightboxProps)
         ×
       </button>
       <div className="relative w-full h-full max-w-3xl max-h-[85vh] animate-sheet-in">
-        <Image src={src} alt={alt} fill sizes="100vw" className="object-contain" />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="100vw"
+          className="object-contain"
+          unoptimized={!isOptimizable(src)}
+        />
       </div>
     </div>,
     document.body

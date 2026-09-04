@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { MENU_IMAGE_HOSTS } from "./src/app/menu/lib/imageHosts";
 
 const nextConfig: NextConfig = {
   // Pin the Turbopack workspace root to this project. A stray pnpm-lock.yaml in
@@ -8,8 +9,14 @@ const nextConfig: NextConfig = {
   },
   // Hide the dev-only route indicator badge (bottom-left "rendering" status).
   devIndicators: false,
+  // Restaurant logos and menu-item photos are served by each tenant's own
+  // provider. Any host missing from this list falls back to `unoptimized` in
+  // the menu components rather than rendering blank — see lib/imageHosts.ts.
   images: {
-    remotePatterns: [{ protocol: "https", hostname: "res.cloudinary.com" }],
+    remotePatterns: MENU_IMAGE_HOSTS.map((hostname) => ({
+      protocol: "https" as const,
+      hostname,
+    })),
   },
   async headers() {
     return [

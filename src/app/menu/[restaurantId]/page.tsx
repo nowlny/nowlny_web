@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import Image from "next/image";
+import { isOptimizable } from "../lib/imageHosts";
 import { notFound } from "next/navigation";
 import { getRestaurantFull } from "../lib/api";
 import { getT, resolveLang } from "../lib/i18n";
@@ -106,6 +107,7 @@ export default async function MenuPage({
               sizes="(max-width: 672px) 100vw, 672px"
               className="object-cover"
               priority
+              unoptimized={!isOptimizable(restaurant.backgroundImageUrl)}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-bg-base/90 to-transparent" />
           </div>
@@ -125,6 +127,7 @@ export default async function MenuPage({
                 sizes="80px"
                 className="object-cover"
                 priority
+                unoptimized={!isOptimizable(restaurant.logo)}
               />
             </div>
           ) : null}

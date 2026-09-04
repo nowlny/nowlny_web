@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import { isOptimizable } from "../lib/imageHosts";
 import { API_BASE, type MenuItem, type OptionGroup } from "../lib/api";
 import type { Lang } from "../lib/i18n";
 import { getT } from "../lib/i18n";
@@ -93,6 +94,7 @@ export default function ItemOptionsModal({
                 fill
                 sizes="80px"
                 className="object-cover"
+                unoptimized={!isOptimizable(item.image)}
               />
             </button>
           ) : null}

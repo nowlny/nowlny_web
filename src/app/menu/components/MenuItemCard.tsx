@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import type { MenuItem } from "../lib/api";
+import { isOptimizable } from "../lib/imageHosts";
 import type { Lang } from "../lib/i18n";
 import { getT } from "../lib/i18n";
 import ItemOptionsModal from "./ItemOptionsModal";
@@ -79,6 +80,7 @@ export default function MenuItemCard({
               fill
               sizes="80px"
               className="object-cover"
+              unoptimized={!isOptimizable(item.image)}
             />
           </div>
         ) : null}
