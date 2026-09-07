@@ -42,7 +42,7 @@ export async function generateMetadata({
     },
     itunes: {
       appId: "6778863532",
-      appArgument: `https://nowlny.com/menu/${restaurant.id}`,
+      appArgument: `https://www.nowlny.com/menu/${restaurant.id}`,
     },
   };
 }

@@ -18,6 +18,20 @@ const nextConfig: NextConfig = {
       hostname,
     })),
   },
+  // Canonical host is www. This redirect lives here — not in the hosting
+  // provider's domain settings — so the `.well-known` verification files can
+  // be excluded: neither Apple nor Android follows a redirect when fetching
+  // them, and an unverified host means every link opens the browser.
+  async redirects() {
+    return [
+      {
+        source: "/:path((?!\\.well-known(?:/|$)).*)",
+        has: [{ type: "host", value: "nowlny.com" }],
+        destination: "https://www.nowlny.com/:path",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

@@ -3,8 +3,8 @@
 import { useSyncExternalStore } from "react";
 
 const APP_STORE_URL = "https://apps.apple.com/app/id6778863532";
-const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.nowlnylb.customer";
+const ANDROID_PACKAGE = "com.nowlnylb.customer";
+const PLAY_STORE_URL = `https://play.google.com/store/apps/details?id=${ANDROID_PACKAGE}`;
 
 const emptySubscribe = () => () => {};
 
@@ -27,12 +27,23 @@ export default function OpenInAppBar({ restaurantId, label }: OpenInAppBarProps)
   if (!platform) return null;
 
   const openApp = () => {
-    const storeUrl = platform === "ios" ? APP_STORE_URL : PLAY_STORE_URL;
-    // Try the custom scheme first; if the app isn't installed the page stays
-    // visible and we fall through to the store after a short delay.
-    window.location.href = `nowlny://customer/restaurant/${restaurantId}`;
+    const deepLink = `customer/restaurant/${restaurantId}`;
+
+    if (platform === "android") {
+      // An intent URL lets the browser check for the package itself: the app
+      // opens when installed, otherwise the fallback URL (Play) loads. No
+      // timer guessing, and it works for builds that predate app links.
+      window.location.href =
+        `intent://${deepLink}#Intent;scheme=nowlny;package=${ANDROID_PACKAGE};` +
+        `S.browser_fallback_url=${encodeURIComponent(PLAY_STORE_URL)};end`;
+      return;
+    }
+
+    // iOS has no equivalent: try the custom scheme, and if the page is still
+    // visible shortly after, the app is not installed — go to the App Store.
+    window.location.href = `nowlny://${deepLink}`;
     window.setTimeout(() => {
-      if (!document.hidden) window.location.href = storeUrl;
+      if (!document.hidden) window.location.href = APP_STORE_URL;
     }, 1600);
   };
 

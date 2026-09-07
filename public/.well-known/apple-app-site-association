@@ -4,7 +4,7 @@
     "details": [
       {
         "appID": "Q29W9MSX8F.com.nowlnylb.customer",
-        "paths": ["/customer/*", "/order/*", "/join/*"]
+        "paths": ["/customer/*", "/order/*", "/join/*", "/menu/*"]
       },
       {
         "appID": "Q29W9MSX8F.com.nowlnylb.restaurant",

@@ -1,17 +1,22 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.nowlnylb.customer",
       "sha256_cert_fingerprints": [
         "80:CB:91:2A:E1:76:13:D4:C0:B2:22:AA:32:B6:DF:F3:EF:1B:0D:3A:5C:52:E9:39:DC:1D:D3:CC:15:79:60:3D",
-        "F1:78:BA:BE:38:2C:33:84:ED:2F:10:0B:D4:5E:FA:6E:82:87:9C:B9:2C:2C:2D:56:3B:16:53:F8:B4:13:07:83"
+        "F1:78:BA:BE:38:2C:33:84:ED:2F:10:0B:D4:5E:FA:6E:82:87:9C:B9:2C:2C:2D:56:3B:16:53:F8:B4:13:07:83",
+        "FA:C6:17:45:DC:09:03:78:6F:B9:ED:E6:2A:96:2B:39:9F:73:48:F0:BB:6F:89:9B:83:32:66:75:91:03:3B:9C"
       ]
     }
   },
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.nowlnylb.restaurant",
@@ -21,7 +26,9 @@
     }
   },
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.nowlnylb.delivery",
@@ -31,7 +38,9 @@
     }
   },
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.nowlny_delivery_company",
