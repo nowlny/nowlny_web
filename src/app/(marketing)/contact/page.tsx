@@ -102,7 +102,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm text-text-muted mb-1">Call Us</p>
-                    <a href="tel:+96171916674" className="font-medium hover:text-primary transition-colors">+961 71 916 674</a>
+                    <a href="tel:+96178783668" className="font-medium hover:text-primary transition-colors">+961 78 783 668</a>
                   </div>
                 </div>
 
@@ -114,7 +114,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm text-text-muted mb-1">WhatsApp</p>
-                    <a href="https://wa.me/96171916674" target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline">+961 71 916 674</a>
+                    <a href="https://wa.me/96178783668" target="_blank" rel="noopener noreferrer" className="font-medium text-primary hover:underline">+961 78 783 668</a>
                   </div>
                 </div>
 

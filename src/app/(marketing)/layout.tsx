@@ -21,7 +21,7 @@ export default function MarketingLayout({
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/96171916674"
+        href="https://wa.me/96178783668"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-[0_8px_24px_rgba(37,211,102,0.4)] hover:-translate-y-1 transition-all duration-300 z-50 group"

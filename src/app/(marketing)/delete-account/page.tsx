@@ -114,7 +114,7 @@ export default function DeleteAccount() {
                   id="phone"
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
-                  placeholder="e.g. +96171916674"
+                  placeholder="e.g. +96178783668"
                   required
                   className={inputClasses}
                 />

@@ -119,8 +119,8 @@ const sections = [
           nowlnylb@gmail.com
         </a>{" "}
         or via WhatsApp at{" "}
-        <a href="https://wa.me/96171916674" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
-          +961 71 916 674
+        <a href="https://wa.me/96178783668" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">
+          +961 78 783 668
         </a>
         .
       </p>
